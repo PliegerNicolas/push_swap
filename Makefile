@@ -6,7 +6,7 @@
 #    By: nicolas <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 22:29:51 by nicolas           #+#    #+#              #
-#    Updated: 2023/01/14 03:53:11 by nicolas          ###   ########.fr        #
+#    Updated: 2023/01/15 16:35:56 by nicolas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ OBJS_CHECKER		:=		$(SRCS_CHECKER_C:%.c=$(OBJ_DIR)/%.o)
 CC					:=		gcc
 AR					:=		ar -rcs
 DIRS				:=		-I $(INC_DIR)
-CFLAGS				:=		-Wall -Wextra -Werror -g
+CFLAGS				:=		-Wall -Wextra -Werror
 RM					:=		rm -f
 
 #------------------------------------------------#
