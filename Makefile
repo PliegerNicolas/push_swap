@@ -6,7 +6,7 @@
 #    By: nicolas <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 22:29:51 by nicolas           #+#    #+#              #
-#    Updated: 2023/01/15 16:35:56 by nicolas          ###   ########.fr        #
+#    Updated: 2023/01/16 19:03:12 by nplieger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ GET_NEXT_LINE_DIR	:=		get_next_line
 GET_NEXT_LINE		:=		$(GET_NEXT_LINE_DIR)/get_next_line.a
 
 SRCS_COMMON			:=		args_verification/verify_given_args \
-							args_verification/retrieve_int_and_verify_duplicate \
+							args_verification/retrieve_int_and_verify \
 							initialize/initialize_stacks \
 							initialize/reverse_double_linked_stack \
 							initialize/set_final_positions \
@@ -78,7 +78,7 @@ OBJS_CHECKER		:=		$(SRCS_CHECKER_C:%.c=$(OBJ_DIR)/%.o)
 CC					:=		gcc
 AR					:=		ar -rcs
 DIRS				:=		-I $(INC_DIR)
-CFLAGS				:=		-Wall -Wextra -Werror
+CFLAGS				:=		-Wall -Wextra -Werror -g
 RM					:=		rm -f
 
 #------------------------------------------------#

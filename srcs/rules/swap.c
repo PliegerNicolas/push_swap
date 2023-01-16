@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:36:46 by nicolas           #+#    #+#             */
-/*   Updated: 2023/01/13 16:37:26 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:49:12 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -24,7 +24,7 @@ static void	rule_swap(t_stack **stack)
 
 void	rule_sa(t_stack **stacks, t_bool print)
 {
-	if (!stacks[A])
+	if ((!stacks[A] || !stacks[A]->next))
 		return ;
 	rule_swap(&stacks[A]);
 	if (print)
@@ -33,7 +33,7 @@ void	rule_sa(t_stack **stacks, t_bool print)
 
 void	rule_sb(t_stack **stacks, t_bool print)
 {
-	if (!stacks[B])
+	if ((!stacks[B] || !stacks[B]->next))
 		return ;
 	rule_swap(&stacks[B]);
 	if (print)
@@ -42,7 +42,7 @@ void	rule_sb(t_stack **stacks, t_bool print)
 
 void	rule_ss(t_stack **stacks, t_bool print)
 {
-	if (!stacks[A] || !stacks[B])
+	if ((!stacks[A] || !stacks[A]->next) || (!stacks[B] || !stacks[B]->next))
 		return ;
 	rule_swap(&stacks[A]);
 	rule_swap(&stacks[B]);

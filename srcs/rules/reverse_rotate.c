@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 18:45:55 by nicolas           #+#    #+#             */
-/*   Updated: 2023/01/06 18:56:16 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:51:32 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -29,9 +29,7 @@ static void	rule_reverse_rotate(t_stack **stack)
 
 void	rule_rra(t_stack **stacks, t_bool print)
 {
-	if (!stacks[A])
-		return ;
-	if (!stacks[A]->next)
+	if ((!stacks[A] || !stacks[A]->next))
 		return ;
 	rule_reverse_rotate(&stacks[A]);
 	if (print)
@@ -40,9 +38,7 @@ void	rule_rra(t_stack **stacks, t_bool print)
 
 void	rule_rrb(t_stack **stacks, t_bool print)
 {
-	if (!stacks[B])
-		return ;
-	if (!stacks[B]->next)
+	if ((!stacks[B] || !stacks[B]->next))
 		return ;
 	rule_reverse_rotate(&stacks[B]);
 	if (print)
@@ -51,7 +47,7 @@ void	rule_rrb(t_stack **stacks, t_bool print)
 
 void	rule_rrr(t_stack **stacks, t_bool print)
 {
-	if (!stacks[A] && !stacks[B])
+	if ((!stacks[A] || !stacks[A]->next) || (!stacks[B] || !stacks[B]->next))
 		return ;
 	rule_reverse_rotate(&stacks[A]);
 	rule_reverse_rotate(&stacks[B]);

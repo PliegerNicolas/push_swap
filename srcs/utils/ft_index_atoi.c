@@ -6,16 +6,16 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 16:28:35 by nicolas           #+#    #+#             */
-/*   Updated: 2022/12/25 16:28:50 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:55:45 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	ft_index_atoi(const char *nptr, size_t *index)
+long long int	ft_index_atoi(const char *nptr, size_t *index)
 {
-	int		i;
-	int		operator;
-	int		nb;
+	int					i;
+	int					operator;
+	long long int		nb;
 
 	operator = 1;
 	nb = 0;

@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 22:41:37 by nicolas           #+#    #+#             */
-/*   Updated: 2023/01/14 02:36:44 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:57:45 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 
 	if (!verify_given_args(argc, argv, &args_count))
 		return (1);
-	stacks = initialize_stacks(retrieve_int_and_verify_duplicate(argv + 1,
+	stacks = initialize_stacks(retrieve_int_and_verify(argv + 1,
 				args_count), args_count);
 	if (!stacks)
 		return (1);

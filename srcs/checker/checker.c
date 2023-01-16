@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 01:09:31 by nicolas           #+#    #+#             */
-/*   Updated: 2023/01/14 04:00:31 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:58:02 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -46,8 +46,7 @@ int	main(int argc, char **argv)
 	if (!verify_given_args(argc, argv, &args_count))
 		return (1);
 	stacks = initialize_stacks_checker
-		(retrieve_int_and_verify_duplicate
-			(argv + 1, args_count), args_count);
+		(retrieve_int_and_verify(argv + 1, args_count), args_count);
 	if (!stacks)
 		return (1);
 	if (!b_is_empty(stacks))

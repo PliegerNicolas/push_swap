@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   retrieve_int_and_verify_duplicate.c                :+:      :+:    :+:   */
+/*   retrieve_int_and_verify.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 23:24:55 by nicolas           #+#    #+#             */
-/*   Updated: 2023/01/06 17:55:49 by nicolas          ###   ########.fr       */
+/*   Updated: 2023/01/16 19:05:09 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -30,10 +30,21 @@ static t_bool	verify_duplicate(int *int_args, const size_t args_count)
 	return (0);
 }
 
+static t_bool	check_if_int(long long int llint)
+{
+	if (llint > MAX_INT || llint < MIN_INT)
+	{
+		ft_putendl_fd("Error. Given value exceeds integer type limit.", 2);
+		return (FALSE);
+	}
+	return (TRUE);
+}
+
 static int	*retrieve_int(char **args, int *int_args)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	size_t			j;
+	long long int	llint;
 
 	i = 0;
 	while (*args)
@@ -41,7 +52,14 @@ static int	*retrieve_int(char **args, int *int_args)
 		j = 0;
 		while ((*args)[j])
 		{
-			int_args[i++] = ft_index_atoi(*args + j, &j);
+			llint = ft_index_atoi(*args + j, &j);
+			if (!check_if_int(llint))
+			{
+				free(int_args);
+				return (NULL);
+			}
+			else
+				int_args[i++] = (int)llint;
 			while ((*args)[j] == ' ')
 				j++;
 		}
@@ -50,7 +68,7 @@ static int	*retrieve_int(char **args, int *int_args)
 	return (int_args);
 }
 
-int	*retrieve_int_and_verify_duplicate(char **args, const size_t args_count)
+int	*retrieve_int_and_verify(char **args, const size_t args_count)
 {
 	int		*int_args;
 
@@ -58,6 +76,8 @@ int	*retrieve_int_and_verify_duplicate(char **args, const size_t args_count)
 	if (!int_args)
 		return (NULL);
 	int_args = retrieve_int(args, int_args);
+	if (!int_args)
+		return (NULL);
 	if (verify_duplicate(int_args, args_count))
 	{
 		free(int_args);
