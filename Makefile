@@ -6,7 +6,7 @@
 #    By: nicolas <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 22:29:51 by nicolas           #+#    #+#              #
-#    Updated: 2023/01/16 19:03:12 by nplieger         ###   ########.fr        #
+#    Updated: 2023/01/17 09:15:16 by nplieger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,4 @@ bonus:				all $(OBJS_CHECKER)
 	$(AR) $(NAME_CHECKER) $(OBJS_CHECKER) $(OBJS_COMMON)
 	$(CC) $(CFLAGS) $(NAME_CHECKER) $(GET_NEXT_LINE) -o $(EXEC_CHECKER)
 
-bonus_re:			fclean bonus
-
-.PHONY: all clean fclean re bonus bonus_re
+.PHONY: all clean fclean re bonus

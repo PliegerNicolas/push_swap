@@ -6,7 +6,7 @@
 /*   By: nicolas <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 02:30:16 by nicolas           #+#    #+#             */
-/*   Updated: 2023/01/16 18:53:19 by nplieger         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:23:23 by nplieger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "checker.h"
@@ -64,17 +64,15 @@ t_bool	execute_rules(t_stack **stacks)
 	while (line)
 	{
 		line = get_next_line(0);
-		if (line)
+		if (!line)
+			break ;
+		if (!rule_apply(stacks, line, FALSE))
 		{
-			if (!rule_apply(stacks, line, TRUE))
-			{
-				free(line);
-				free_stacks(stacks);
-				return (FALSE);
-			}
 			free(line);
-			line = "";
+			free_stacks(stacks);
+			return (FALSE);
 		}
+		free(line);
 	}
 	return (TRUE);
 }

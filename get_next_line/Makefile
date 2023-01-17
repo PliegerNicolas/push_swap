@@ -6,7 +6,7 @@
 #    By: nicolas <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 03:35:01 by nicolas           #+#    #+#              #
-#    Updated: 2023/01/13 03:39:04 by nicolas          ###   ########.fr        #
+#    Updated: 2023/01/17 12:22:04 by nplieger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INC_DIR				:=		includes
 
 SRCS				:=		get_next_line \
 							get_next_line_utils \
-							
+						
 SRCS_C				:=		$(addsuffix .c, $(SRCS))
 CC_SRCS_C			:=		$(addsuffix $(SRC_DIR)/, $(SRCS_C))
 
@@ -39,7 +39,7 @@ OBJS				:=		$(SRCS_C:%.c=$(OBJ_DIR)/%.o)
 CC					:=		gcc
 AR					:=		ar -rcs
 DIRS				:=		-I $(INC_DIR)
-CFLAGS				:=		-Wall -Wextra -Werror
+CFLAGS				:=		-Wall -Wextra -Werror -g
 RM					:=		rm -f
 
 #------------------------------------------------#
@@ -52,6 +52,10 @@ $(NAME):			$(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 $(OBJS):			$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(DIRS) -c $< -o $@
+
+$(OBJS_BONUS):			$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(DIRS) -c $< -o $@
 
